@@ -70,7 +70,7 @@ open class SBNagService: NSObject {
             alert.dismiss(animated: true, completion: nil)
         }))
         if let alreadyText = nagtion.alreadyHaveText {
-            alert.addAction(UIAlertAction(title: nagtion.alreadyHaveText, style: .cancel, handler: { (action) in
+            alert.addAction(UIAlertAction(title: alreadyText, style: .cancel, handler: { (action) in
                 if let action = nagtion.alreadyHaveAction {
                     action()
                 }
