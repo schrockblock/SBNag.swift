@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SBNag.swift'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SBNag.swift.'
+  s.version          = '0.0.1'
+  s.summary          = 'A Swift library for nagging users to take an action.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,15 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This is a simple swift pod to manage the logic behind nagging users to take actions like rating your app or upgrading to a paid version. To do so, simply create a new SBNagtion (think 'Nag Action'), and edit the defaults (Example/SBNag/ViewController.swift shows how you could do this).
                        DESC
 
-  s.homepage         = 'https://github.com/Elliot/SBNag.swift'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/schrockblock/SBNag.swift'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Elliot' => 'elliot.schrock@gmail.com' }
-  s.source           = { :git => 'https://github.com/Elliot/SBNag.swift.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'schrockblock' => 'thryvinc@gmail.com' }
+  s.source           = { :git => 'https://github.com/schrockblock/SBNag.swift.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/schrockblock'
 
   s.ios.deployment_target = '8.0'
 
@@ -37,6 +36,5 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SwiftDate'
 end

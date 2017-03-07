@@ -1,12 +1,14 @@
 use_frameworks!
 
-target 'SBNag.swift_Example' do
+target 'SBNag_Example' do
   pod 'SBNag.swift', :path => '../'
+  pod 'SwiftDate'
 
-  target 'SBNag.swift_Tests' do
+  target 'SBNag_Tests' do
     inherit! :search_paths
-
+    
+    pod 'SBNag.swift', :path => '../'
     pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
+    pod 'Nimble', '~> 5.1.1'
   end
 end

@@ -2,48 +2,53 @@
 
 import Quick
 import Nimble
-import SBNag.swift
+@testable import SBNag_swift
+import SwiftDate
 
-class TableOfContentsSpec: QuickSpec {
+class SBNagSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
+        let nag = SBNagService()
+        nag.delayInSeconds = 0
+        nag.daysBetweenNags = 0
+        
+        let rateNagtion = SBNagtion()
+        rateNagtion.defaultsKey = "rate"
+        rateNagtion.title = "Sorry to interrupt..."
+        rateNagtion.message = "...but would you mind rating this app?"
+        
+        let paidNagtion = SBNagtion()
+        paidNagtion.defaultsKey = "paid"
+        paidNagtion.title = "Hey!"
+        paidNagtion.message = "Would you like to buy an ad free version?"
+        
+        nag.nagtions.append(rateNagtion)
+        nag.nagtions.append(paidNagtion)
+        
+        describe("SBNagService") {
+            
+            it("doesn't nag the first time") {
+                expect(nag.isNaggable()).to(beFalse())
             }
 
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
+            it("isn't naggable too soon") {
+                nag.daysBetweenNags = 1
+                expect(nag.isNaggable()).to(beFalse())
             }
             
-            context("these will pass") {
+            it("is naggable when time passed") {
+                nag.updateLastNagged(date: 2.days.ago())
+                expect(nag.isNaggable()).to(beTrue())
+            }
 
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
+            it("respects nagged choices") {
+                UserDefaults.standard.set(true, forKey: rateNagtion.defaultsKey)
+                expect(nag.isNaggable(nagtion: rateNagtion)).to(beFalse())
+            }
+            
+            afterSuite {
+                nag.updateLastNagged(date: nil)
+                UserDefaults.standard.set(nil, forKey: rateNagtion.defaultsKey)
+                UserDefaults.standard.set(nil, forKey: paidNagtion.defaultsKey)
             }
         }
     }

@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "SBNag.swift_Example.app"
-               BlueprintName = "SBNag.swift_Example"
-               ReferencedContainer = "container:SBNag.swift.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SBNag.swift_Tests.xctest"
-               BlueprintName = "SBNag.swift_Tests"
-               ReferencedContainer = "container:SBNag.swift.xcodeproj">
+               BuildableName = "SBNag_Example.app"
+               BlueprintName = "SBNag_Example"
+               ReferencedContainer = "container:SBNag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SBNag.swift_Tests.xctest"
-               BlueprintName = "SBNag.swift_Tests"
-               ReferencedContainer = "container:SBNag.swift.xcodeproj">
+               BuildableName = "SBNag_Tests.xctest"
+               BlueprintName = "SBNag_Tests"
+               ReferencedContainer = "container:SBNag.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SBNag.swift_Example.app"
-            BlueprintName = "SBNag.swift_Example"
-            ReferencedContainer = "container:SBNag.swift.xcodeproj">
+            BuildableName = "SBNag_Example.app"
+            BlueprintName = "SBNag_Example"
+            ReferencedContainer = "container:SBNag.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SBNag.swift_Example.app"
-            BlueprintName = "SBNag.swift_Example"
-            ReferencedContainer = "container:SBNag.swift.xcodeproj">
+            BuildableName = "SBNag_Example.app"
+            BlueprintName = "SBNag_Example"
+            ReferencedContainer = "container:SBNag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SBNag.swift_Example.app"
-            BlueprintName = "SBNag.swift_Example"
-            ReferencedContainer = "container:SBNag.swift.xcodeproj">
+            BuildableName = "SBNag_Example.app"
+            BlueprintName = "SBNag_Example"
+            ReferencedContainer = "container:SBNag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
