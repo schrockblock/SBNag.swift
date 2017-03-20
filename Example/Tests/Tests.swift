@@ -10,6 +10,7 @@ class SBNagSpec: QuickSpec {
         let nag = SBNagService()
         nag.delayInSeconds = 0
         nag.daysBetweenNags = 0
+        nag.updateNagCount(count: nil)
         
         let rateNagtion = SBNagtion()
         rateNagtion.defaultsKey = "rate"
@@ -37,6 +38,7 @@ class SBNagSpec: QuickSpec {
             
             it("is naggable when time passed") {
                 nag.updateLastNagged(date: 2.days.ago())
+                nag.updateNagCount(count: 2)
                 expect(nag.isNaggable()).to(beTrue())
             }
 

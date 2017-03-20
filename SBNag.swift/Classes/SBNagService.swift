@@ -11,9 +11,12 @@ import SwiftDate
 
 open class SBNagService: NSObject {
     fileprivate static let kLastNaggedKey: String = "sbLastNagged"
+    fileprivate static let kNaggedCountKey: String = "sbNaggedCount"
     public var nagtions = [SBNagtion]()
     public var delayInSeconds: Int = 17
     public var daysBetweenNags: Int = 2
+    public var opensOffset: Int = 3
+    public var opensBetweenNags: Int = 7
 
     public func startCountDown() {
         if isNaggable() {
@@ -27,13 +30,17 @@ open class SBNagService: NSObject {
     }
     
     func isNaggable() -> Bool {
+        let checkCount: Int = UserDefaults.standard.integer(forKey: SBNagService.kNaggedCountKey)
         let lastChecked: Date? = UserDefaults.standard.object(forKey: SBNagService.kLastNaggedKey) as? Date
         var canNag = false
         if let checkedDate = lastChecked {
-            canNag = checkedDate + daysBetweenNags.days < Date()
+            let canNagDate = checkedDate + daysBetweenNags.days < Date()
+            let canNagCount = (checkCount - opensOffset) % opensBetweenNags == 0
+            canNag = canNagDate && canNagCount
         }else{
             UserDefaults.standard.set(Date(), forKey: SBNagService.kLastNaggedKey)
         }
+        updateNagCount(count: checkCount + 1)
         return canNag
     }
     
@@ -52,6 +59,14 @@ open class SBNagService: NSObject {
     
     func updateLastNagged(date: Date?) {
         UserDefaults.standard.set(date, forKey: SBNagService.kLastNaggedKey)
+    }
+    
+    func updateNagCount(count: Int?) {
+        if let checkCount = count {
+            UserDefaults.standard.set(checkCount + 1, forKey: SBNagService.kNaggedCountKey)
+        } else {
+            UserDefaults.standard.set(0, forKey: SBNagService.kNaggedCountKey)
+        }
     }
     
     func alertController(from nagtion: SBNagtion) -> UIAlertController {
