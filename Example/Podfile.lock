@@ -1,26 +1,32 @@
 PODS:
-  - Nimble (5.1.1)
-  - Quick (1.0.0)
-  - SBNag.swift (0.0.1):
+  - Nimble (8.0.7)
+  - Quick (2.2.0)
+  - SBNag.swift (0.0.2):
     - SwiftDate
-  - SwiftDate (4.0.13)
+  - SwiftDate (6.1.0)
 
 DEPENDENCIES:
-  - Nimble (~> 5.1.1)
-  - Quick (~> 1.0.0)
+  - Nimble
+  - Quick
   - SBNag.swift (from `../`)
   - SwiftDate
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - Quick
+    - SwiftDate
 
 EXTERNAL SOURCES:
   SBNag.swift:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  SBNag.swift: c32f2faf452836393d38978adab3e3c79df410f7
-  SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  SBNag.swift: 5e9ffbcd35280305de0f864235969dfbbcded943
+  SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
 
-PODFILE CHECKSUM: 8bb4ca4d1afe1c6b0654f25d723f4d3f74f1d4d3
+PODFILE CHECKSUM: 925b0974bd69113bab957b575b2781ce7c198445
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.9.0

@@ -70,7 +70,7 @@ open class SBNagService: NSObject {
     }
     
     func alertController(from nagtion: SBNagtion) -> UIAlertController {
-        let alert = UIAlertController(title: nagtion.title, message: nagtion.message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: nagtion.title, message: nagtion.message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: nagtion.yesText, style: .default, handler: { (action) in
             if let action = nagtion.yesAction {
                 UserDefaults.standard.set(true, forKey: nagtion.defaultsKey)
@@ -105,17 +105,17 @@ open class SBNagService: NSObject {
 }
 
 extension UIAlertController {
-    
     public func display(animated flag: Bool = true, completion: (() -> Void)? = nil) {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIViewController()
-        window.backgroundColor = UIColor.clear
-        window.windowLevel = UIWindowLevelAlert
-        
-        if let rootViewController = window.rootViewController {
-            window.makeKeyAndVisible()
-            
-            rootViewController.present(self, animated: flag, completion: completion)
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            if let navVC = rootViewController as? UINavigationController, let visibleVC = navVC.visibleViewController {
+                    present(visibleVC, animated: flag, completion: completion)
+            } else {
+                if let tabVC = rootViewController as? UITabBarController, let selectedVC = tabVC.selectedViewController {
+                      present(selectedVC, animated: flag, completion: completion)
+                } else {
+                    rootViewController.present(self, animated: flag, completion: completion)
+                }
+            }
         }
     }
 }

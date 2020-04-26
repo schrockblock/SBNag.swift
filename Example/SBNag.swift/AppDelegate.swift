@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import SBNag_swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let nag = SBNagService()
+        
+        let rateNagtion = SBNagtion()
+        rateNagtion.defaultsKey = "rate"
+        rateNagtion.title = "Sorry to interrupt..."
+        rateNagtion.message = "...but would you mind rating this app?"
+        rateNagtion.noText = "Nope, I'll never rate this app"
+        rateNagtion.yesAction = { () in
+            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/subway-map-nyc/id1025535484?ls=1&mt=8")!)
+        }
+        
+        nag.nagtions.append(rateNagtion)
+        nag.startCountDown()
         return true
     }
 
