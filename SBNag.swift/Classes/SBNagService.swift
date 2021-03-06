@@ -108,13 +108,13 @@ extension UIAlertController {
     public func display(animated flag: Bool = true, completion: (() -> Void)? = nil) {
         if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
             if let navVC = rootViewController as? UINavigationController, let visibleVC = navVC.visibleViewController {
-                    present(visibleVC, animated: flag, completion: completion)
+                visibleVC.present(self, animated: flag, completion: completion)
+            } else if let tabVC = rootViewController as? UITabBarController, let selectedVC = tabVC.selectedViewController {
+                selectedVC.present(self, animated: flag, completion: completion)
+            } else if let presented = rootViewController.presentedViewController {
+                presented.present(self, animated: flag, completion: completion)
             } else {
-                if let tabVC = rootViewController as? UITabBarController, let selectedVC = tabVC.selectedViewController {
-                      present(selectedVC, animated: flag, completion: completion)
-                } else {
-                    rootViewController.present(self, animated: flag, completion: completion)
-                }
+                rootViewController.present(self, animated: flag, completion: completion)
             }
         }
     }

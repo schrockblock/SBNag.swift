@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let nag = SBNagService()
+        nag.opensOffset = 0
+        nag.daysBetweenNags = 0
+        nag.opensBetweenNags = 1
+        nag.delayInSeconds = 5
         
         let rateNagtion = SBNagtion()
         rateNagtion.defaultsKey = "rate"

@@ -8,9 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SBNag.swift'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'A Swift library for nagging users to take an action.'
-  s.swift_versions   = ['4.0', '4.2', '5.0', '5.1']
+  s.swift_versions   = ['4.0', '4.2', '5.0', '5.1', '5.2', '5.3']
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -28,7 +28,7 @@ This is a simple swift pod to manage the logic behind nagging users to take acti
   s.source           = { :git => 'https://github.com/schrockblock/SBNag.swift.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/schrockblock'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'SBNag.swift/Classes/**/*'
   
